@@ -1,0 +1,2265 @@
+{
+	"info": {
+		"_postman_id": "af06ee6e-f69b-4e1a-a3b8-49ed4456c7d1",
+		"name": "Book Shop API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22113564"
+	},
+	"item": [
+		{
+			"name": "Books Requests",
+			"item": [
+				{
+					"name": "Find All Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/books?pageNumber=0&size=4",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"books"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/66680bc56ad1cc34f2af38aa",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"66680bc56ad1cc34f2af38aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book By Title",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/title/Book1",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"title",
+								"Book1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Books By Price",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/price/10.0?pageNumber=2&size=1",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"price",
+								"10.0"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Books Greater Than Price",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/price/greater/10.0?pageNumber=2&size=1",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"price",
+								"greater",
+								"10.0"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Books Less Than Price",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/price/less/200.0?pageNumber=2&size=2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"price",
+								"less",
+								"200.0"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book By Genre Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/genre/id?genreId=666963eb41a129369d3656b3",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"genre",
+								"id"
+							],
+							"query": [
+								{
+									"key": "genreId",
+									"value": "666963eb41a129369d3656b3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book By Genre Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/genre/name?genreName=Genre1&pageNumber=2&size=1",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"genre",
+								"name"
+							],
+							"query": [
+								{
+									"key": "genreName",
+									"value": "Genre1"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Books By Language",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/books/language/ENGLISH",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"books",
+								"language",
+								"ENGLISH"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Books That have Stock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/books/stock?pageNumber=0&size=10",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"books",
+								"stock"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Book2\",\r\n    \"price\": 100.00,\r\n    \"publificationDate\": \"2021-10-10\",\r\n    \"description\": \"Description Description Description Description Description Description \",\r\n    \"pageCount\": 150,\r\n    \"language\": \"ENGLISH\",\r\n    \"genreId\": \"66696306e684324176e7ac37\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Books",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"title\": \"Book2\",\r\n        \"price\": 20.00,\r\n        \"publificationDate\": \"2021-10-10\",\r\n        \"description\": \"Description Description Description Description Description Description \",\r\n        \"pageCount\": 200,\r\n        \"language\": \"FRENCH\"\r\n    },\r\n    {\r\n        \"title\": \"Book3\",\r\n        \"price\": 50.00,\r\n        \"publificationDate\": \"2020-11-20\",\r\n        \"description\": \"Description Description Description Description Description Description \",\r\n        \"pageCount\": 150,\r\n        \"language\": \"ALBANIAN\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/books",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book By Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"genreId\": \"66696306e684324176e7ac37\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/id/66680bc56ad1cc34f2af38aa",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"id",
+								"66680bc56ad1cc34f2af38aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book By Title",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 300.00,\r\n    \"description\": \"Description Description Description Description Description Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/title/Book1",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"title",
+								"Book1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book ByTitle",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/book/title/Book2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"book",
+								"title",
+								"Book2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genres Requests",
+			"item": [
+				{
+					"name": "Find Genre By Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genre/name/Genre3",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genre",
+								"name",
+								"Genre3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Genre By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genre/id/666963eb41a129369d3656b3",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genre",
+								"id",
+								"666963eb41a129369d3656b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Genres",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genres",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Genre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Genre1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genre",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Genres",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\": \"Genre2\"\r\n    },\r\n    {\r\n        \"name\": \"Genre3\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genres",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Genre By Name",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Genre3.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genre/name/Genre3",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genre",
+								"name",
+								"Genre3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Genre by Name",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/genre/name/Genre2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"genre",
+								"name",
+								"Genre2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors Requests",
+			"item": [
+				{
+					"name": "Find All Authors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/authors?pageNumber=1&size=2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"authors"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Author By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/author/666c072f7090f1399bed91d0",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"author",
+								"666c072f7090f1399bed91d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Author by First Name and Last Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/authors/firstNameAndLastName?firstName=Author1&lastName=AuthorLast1",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"authors",
+								"firstNameAndLastName"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Author1"
+								},
+								{
+									"key": "lastName",
+									"value": "AuthorLast1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Author by Email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/author/email?authorEmail=author1@gmail.com",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"author",
+								"email"
+							],
+							"query": [
+								{
+									"key": "authorEmail",
+									"value": "author1@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Author By Nationality",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/authors/nationality/FRENCH",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"authors",
+								"nationality",
+								"FRENCH"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Author",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Author3\",\r\n    \"lastName\": \"AuthorLast3\",\r\n    \"bio\": \"Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio\",\r\n    \"authorEmail\": \"author3@gmail.com\",\r\n    \"dateOfBirth\": \"2021-10-10\",\r\n    \"nationality\": \"ENGLISH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/author",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Authors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\": \"Author2\",\r\n        \"lastName\": \"AuthorLast2\",\r\n        \"bio\": \"Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio\",\r\n        \"authorEmail\": \"author2@gmail.com\",\r\n        \"dateOfBirth\": \"2021-10-10\",\r\n        \"nationality\": \"ALBANIAN\"\r\n    },\r\n    {\r\n        \"firstName\": \"Author3\",\r\n        \"lastName\": \"AuthorLast3\",\r\n        \"bio\": \"Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio Bio\",\r\n        \"authorEmail\": \"author3@gmail.com\",\r\n        \"dateOfBirth\": \"2021-10-10\",\r\n        \"nationality\": \"FRENCH\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/authors",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Author By Email",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"LastNameA1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/author/email?authorEmail=author1@gmail.com",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"author",
+								"email"
+							],
+							"query": [
+								{
+									"key": "authorEmail",
+									"value": "author1@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Author By Email",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/author?authorEmail=author3@gmail.com",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"author"
+							],
+							"query": [
+								{
+									"key": "authorEmail",
+									"value": "author3@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BookAuthors Requests",
+			"item": [
+				{
+					"name": "Find BookAuthor By AuthorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor/author/id?authorId=666d50e3b15cbe7b341b48cd",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor",
+								"author",
+								"id"
+							],
+							"query": [
+								{
+									"key": "authorId",
+									"value": "666d50e3b15cbe7b341b48cd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find BookAuthor By BookId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor/book/id?bookId=666af26b5d37486d114013e2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor",
+								"book",
+								"id"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "666af26b5d37486d114013e2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find BookAuthor By Author Email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor/author/email?&authorEmail=author3@gmail.com",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor",
+								"author",
+								"email"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "authorEmail",
+									"value": "author3@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find BookAuthor By Book Title",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor/book/title?&title=Book2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor",
+								"book",
+								"title"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "title",
+									"value": "Book2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find BookAuthor By Author Id And Book Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor?authorId=666c072f7090f1399bed91d0&bookId=666af25b5d37486d114013e0",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor"
+							],
+							"query": [
+								{
+									"key": "authorId",
+									"value": "666c072f7090f1399bed91d0"
+								},
+								{
+									"key": "bookId",
+									"value": "666af25b5d37486d114013e0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert BookAuthor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"authorId\": \"666c06da7090f1399bed91cf\",\r\n    \"bookId\": \"66680bc56ad1cc34f2af38aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert BookAuthors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"authorId\": \"666d50e3b15cbe7b341b48cd\",\r\n        \"bookId\": \"666af26b5d37486d114013e2\"\r\n    },\r\n    {\r\n        \"authorId\": \"666c072f7090f1399bed91d0\",\r\n        \"bookId\": \"666af25b5d37486d114013e0\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthors",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update BookAuthor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"authorId\": \"666c06da7090f1399bed91cf\",\r\n    \"bookId\": \"666af26b5d37486d114013e2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor/id/666d50f7b15cbe7b341b48cf",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor",
+								"id",
+								"666d50f7b15cbe7b341b48cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find BookAuthor by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/bookAuthor/id/666d50f7b15cbe7b341b48ce",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"bookAuthor",
+								"id",
+								"666d50f7b15cbe7b341b48ce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles Requests",
+			"item": [
+				{
+					"name": "Find Role By Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/role?roleName=ROLE_USER",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"role"
+							],
+							"query": [
+								{
+									"key": "roleName",
+									"value": "ROLE_USER"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/roles",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Role By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/role/id?roleId=66719300d13af5040e9e0e94",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"id"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "66719300d13af5040e9e0e94"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Roles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"roleName\": \"ROLE_USER\"\r\n    },\r\n    {\r\n        \"roleName\": \"ROLE_ADMIN\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/roles",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"TEST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/role",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role by Name",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/role/name/ROLE_USER",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"name",
+								"ROLE_USER"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/role/id/66717eb43be8db2d55d678a7",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"role",
+								"id",
+								"66717eb43be8db2d55d678a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users Requests",
+			"item": [
+				{
+					"name": "Find All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/user?pageNumber=1&size=2",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find User by Email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/user/email?email=someEmail@se.com",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "someEmail@se.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// User role user\r\n{\r\n    \"username\": \"User123\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"user123\",\r\n    \"confirmPassword\": \"user123\",\r\n    \"roleId\": \"66719300d13af5040e9e0e94\"\r\n} \r\n// ADMIN role user\r\n// {\r\n//     \"username\": \"Admin123\",\r\n//     \"email\": \"admin@gmail.com\",\r\n//     \"password\": \"admin123\",\r\n//     \"confirmPassword\": \"admin123\",\r\n//     \"roleId\": \"66719300d13af5040e9e0e95\"\r\n// }   \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/signup",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"user123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/login",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/logout",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User by Email",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/user?email=someEmail@se.com",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "someEmail@se.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete my Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/user/mine",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"mine"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions Requests",
+			"item": [
+				{
+					"name": "Find Transactions by UserID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/user?userID=theUserId",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"user"
+							],
+							"query": [
+								{
+									"key": "userID",
+									"value": "theUserId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions By BookID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/book?bookID=theBookId",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"book"
+							],
+							"query": [
+								{
+									"key": "bookID",
+									"value": "theBookId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions by UserID and BookID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions?userID=theUserId&bookID=theBookId",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "userID",
+									"value": "theUserId"
+								},
+								{
+									"key": "bookID",
+									"value": "theBookId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions by Date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/date?date=theDate",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"date"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "theDate"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions by Month",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/month?month=nrMonth",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"month"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "nrMonth"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions by Year",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/year?year=nrYear",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"year"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "nrYear"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions by Price",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/price?totalPrice=price",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"price"
+							],
+							"query": [
+								{
+									"key": "totalPrice",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find my Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transactions/user/this",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"user",
+								"this"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Transaction (Buy Book) ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookID\": \"theBookId\",\r\n    \"stock\": 1  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transaction",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transaction by UserID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/transaction/user?userID=theUserId",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"transaction",
+								"user"
+							],
+							"query": [
+								{
+									"key": "userID",
+									"value": "theUserId"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews Requests",
+			"item": [
+				{
+					"name": "Insert Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": \"theBookId\",\r\n    \"rating\": 5.0,\r\n    \"reviewText\": \"Perfect\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/review",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Reviews by UserId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/reviews/user?userId=theUserId",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"reviews",
+								"user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "theUserId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find my Reviews",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/reviews",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Reviews By BookId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/reviews/book?bookId=theBookId",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"reviews",
+								"book"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "theBookId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Reviews by Rating",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bookShopURL}}/v1/reviews/rating?rating=5",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"reviews",
+								"rating"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review by UserId and BookId",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwttoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{bookShopURL}}/v1/review/user?userId=theUserId&bookId=theBookid",
+							"host": [
+								"{{bookShopURL}}"
+							],
+							"path": [
+								"v1",
+								"review",
+								"user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "theUserId"
+								},
+								{
+									"key": "bookId",
+									"value": "theBookid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
