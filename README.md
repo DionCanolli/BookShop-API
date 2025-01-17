@@ -2,7 +2,7 @@ Project Title: Book Shop API
 
 Description: This is a Book Shop API, used to buy, find, update and delete books (and many other entities) based on book (their)specifications. Books are written by authors and have one genre. Users can buy books and drop reviews for the books he/she bought. 
 
-Installation Instructions: Clone the project and open it in any IDE (IntelliJ for example) and the .json file contains the Postman endpoints for the project, so open that in Postman and run the project and you can 
+Installation Instructions: Clone the project and open it in any IDE (IntelliJ for example) and the .json file contains the Postman endpoints for the project, so open that in Postman and run the project. About MongoDB, all you nede to do is have it installed, and tables will hopefully be filled automatically.
 
 Technologies Used: Java, Spring Framework, Spring Boot, Spring Data MongoDB, Spring Data JPA, Project Lombok, Spring Security, JWT, MongoDB and Postman.
 
