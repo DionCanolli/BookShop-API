@@ -12,10 +12,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Book;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 public class BooksController {
 
     private final APIService apiService;
@@ -24,7 +24,7 @@ public class BooksController {
         this.apiService = apiService;
     }
 
-    @PostMapping(value = "/book")
+    @PostMapping(value = "/admin/book")
     public ResponseEntity<Books> insertBook(@RequestBody Books book) {
         Books bookInserted = apiService.insertBook(book);
         if(bookInserted != null)
@@ -33,7 +33,7 @@ public class BooksController {
             throw new BadRequestException("Couldn't insert Book");
     }
 
-    @PostMapping(value = "/books")
+    @PostMapping(value = "/admin/books")
     public ResponseEntity<List<Books>> insertBooks(@RequestBody List<Books> books){
         List<Books> allBooks = apiService.findAllBooks();
         Books bookExists = null;
@@ -218,7 +218,7 @@ public class BooksController {
             return new ResponseEntity<>(books.getContent(), HttpStatus.OK);
     }
 
-    @PutMapping(value = "/book/id/{bookId}")
+    @PutMapping(value = "/admin/book/id/{bookId}")
     public ResponseEntity<Books> updateBookById(@PathVariable String bookId, @RequestBody Books book) {
         Books existingBook = apiService.findBookById(bookId);
 
@@ -237,7 +237,7 @@ public class BooksController {
             throw new BadRequestException("Couldn't update Book");
     }
 
-    @PutMapping(value = "/book/title/{title}")
+    @PutMapping(value = "/admin/book/title/{title}")
     public ResponseEntity<Books> updateBookByTitle(@PathVariable String title, @RequestBody Books book) {
         Books existingBook = apiService.findBookByTitle(title);
 
@@ -257,7 +257,7 @@ public class BooksController {
             throw new BadRequestException("Couldn't update Book");
     }
 
-    @DeleteMapping(value = "/book/title/{title}")
+    @DeleteMapping(value = "/admin/book/title/{title}")
     public ResponseEntity<String> deleteBookByTitle(@PathVariable String title) {
         try{
             if (apiService.findBookByTitle(title) == null) {

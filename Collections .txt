@@ -1,0 +1,52 @@
+1. Books +
+	a. BookId
+	b. Title
+	c. Price
+	d. PublicationDate
+	e. Description
+	f. PageCount
+	g. Language
+	h. GenreId
+2. Genres +
+	a. GenreId
+	b. Name
+3. Authors +
+	a. AuthorId
+	b. FirstName
+	c. LastName
+	d. Bio
+	e. AuthorEmail
+	f. DateOfBirth
+	g. Nationality
+4. Users +
+	a. UserId
+	b. Username
+	c. Email
+	d. Password
+	e. RoleId (foreign key)
+5. Roles +
+	a. RoleId
+	b. RoleName
+6. Transactions +
+	a. TransactionID
+	b. UserId (foreign key)
+	c. BookId (foreign key)
+	d. Stock
+	e. TotalPrice
+	f. DateTimeOfTansaction
+7. BookAuthors +
+	a. BookAuthorId
+	b. AuthorId (foreign key)
+	c. BookId (foreign key)
+8. BookGenres +
+	a. BookGenreId
+	b. BookId (foreign key)
+	c. GenreId (foreign key)
+9. Reviews +
+	a. ReviewId
+	b. UserId (foreign key)
+	c. BookId (foreign key)
+	d. Rating
+	e. ReviewText
+	f. ReviewDate
+

@@ -20,7 +20,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 public class TransactionsController {
 
     private final APIService apiService;
@@ -42,7 +41,7 @@ public class TransactionsController {
             throw new BadRequestException("Couldn't insert transaction");
     }
 
-    @GetMapping(value = "/transactions/user")
+    @GetMapping(value = "/admin/transactions/user")
     public ResponseEntity<List<Transactions>> findTransactionsByUserId(@RequestParam String userID,
                                                                        @RequestParam(required = false) Integer size,
                                                                        @RequestParam(required = false) Integer pageNumber){
@@ -84,7 +83,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @GetMapping(value = "/transactions/book")
+    @GetMapping(value = "/admin/transactions/book")
     public ResponseEntity<List<Transactions>> findTransactionsByBookId(@RequestParam String bookID,
                                                                        @RequestParam(required = false) Integer size,
                                                                        @RequestParam(required = false) Integer pageNumber){
@@ -105,7 +104,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @GetMapping(value = "/transactions")
+    @GetMapping(value = "/admin/transactions")
     public ResponseEntity<List<Transactions>> findTransactionsByUserIdAndBookId(
                                                         @RequestParam String userID, @RequestParam String bookID,
                                                         @RequestParam(required = false) Integer size,
@@ -127,7 +126,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @GetMapping(value = "/transactions/date")
+    @GetMapping(value = "/admin/transactions/date")
     public ResponseEntity<List<Transactions>> findTransactionsByDate(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
                                                                      @RequestParam(required = false) Integer size,
                                                                      @RequestParam(required = false) Integer pageNumber){
@@ -148,7 +147,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @GetMapping(value = "/transactions/month")
+    @GetMapping(value = "/admin/transactions/month")
     public ResponseEntity<List<Transactions>> findTransactionsByMonth(@RequestParam int month,
                                                                      @RequestParam(required = false) Integer size,
                                                                      @RequestParam(required = false) Integer pageNumber){
@@ -169,7 +168,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @GetMapping(value = "/transactions/year")
+    @GetMapping(value = "/admin/transactions/year")
     public ResponseEntity<List<Transactions>> findTransactionsByYear(@RequestParam int year,
                                                                      @RequestParam(required = false) Integer size,
                                                                      @RequestParam(required = false) Integer pageNumber){
@@ -190,7 +189,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @GetMapping(value = "/transactions/price")
+    @GetMapping(value = "/admin/transactions/price")
     public ResponseEntity<List<Transactions>> findTransactionsByTotalPrice(@RequestParam double totalPrice,
                                                                      @RequestParam(required = false) Integer size,
                                                                      @RequestParam(required = false) Integer pageNumber){
@@ -211,7 +210,7 @@ public class TransactionsController {
             throw new NotFoundException("Couldn't find any Transaction with given input!");
     }
 
-    @DeleteMapping(value = "/transaction/user")
+    @DeleteMapping(value = "/admin/transaction/user")
     public ResponseEntity<String> deleteTransactionByUserId(@RequestParam String userID){
             List<Transactions> transactions = apiService.findTransactionsByUserId(userID);
             if (!transactions.isEmpty()) {

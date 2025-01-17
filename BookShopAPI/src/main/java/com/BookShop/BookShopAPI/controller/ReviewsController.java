@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 public class ReviewsController {
 
     private final APIService apiService;
@@ -38,7 +37,7 @@ public class ReviewsController {
             throw new BadRequestException("Couldn't insert review");
     }
 
-    @GetMapping(value = "/reviews/user")
+    @GetMapping(value = "/admin/reviews/user")
     public ResponseEntity<List<Reviews>> findReviewByUserId(@RequestParam String userId,
                                                             @RequestParam(required = false) Integer size,
                                                             @RequestParam(required = false) Integer pageNumber){
@@ -122,7 +121,7 @@ public class ReviewsController {
             throw new NotFoundException("Couldn't find any Review with given input!");
     }
 
-    @DeleteMapping(value = "/review/user")
+    @DeleteMapping(value = "/admin/review/user")
     public ResponseEntity<String> deleteReviewByUserIdAndBookId(@RequestParam String userId){
         List<Reviews> reviews = apiService.findReviewsByUserId(userId);
         if (reviews != null) {

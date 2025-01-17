@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 @Slf4j
 public class AuthorsController {
 
@@ -31,7 +30,7 @@ public class AuthorsController {
         this.apiService = apiService;
     }
 
-    @PostMapping(value = "/author")
+    @PostMapping(value = "/admin/author")
     public ResponseEntity<Authors> insertAuthor(@RequestBody Authors author){
         Authors authorInserted = apiService.insertAuthor(author);
         if (authorInserted != null)
@@ -40,7 +39,7 @@ public class AuthorsController {
             throw new BadRequestException("Couldn't insert Author");
     }
 
-    @PostMapping(value = "/authors")
+    @PostMapping(value = "/admin/authors")
     public ResponseEntity<List<Authors>> insertAuthor(@RequestBody List<Authors> authors){
         List<Authors> authorsExist = apiService.findAllAuthors();
 
@@ -105,7 +104,7 @@ public class AuthorsController {
             throw new NotFoundException("Couldn't find any Author with nationality = " + nationality);
     }
 
-    @PutMapping(value = "/author/email")
+    @PutMapping(value = "/admin/author/email")
     public ResponseEntity<Authors> updateAuthorByEmail(@RequestParam String authorEmail, @RequestBody Authors author) {
         Authors existingAuthor = apiService.findAuthorByAuthorEmail(authorEmail);
 
@@ -125,7 +124,7 @@ public class AuthorsController {
             throw new BadRequestException("Couldn't update Author");
     }
 
-    @DeleteMapping(value = "/author")
+    @DeleteMapping(value = "/admin/author")
     public ResponseEntity<String> deleteAuthorByEmail(@RequestParam String authorEmail) {
         try{
             apiService.deleteAuthorByEmail(authorEmail);

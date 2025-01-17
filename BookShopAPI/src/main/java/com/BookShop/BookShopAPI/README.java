@@ -35,7 +35,7 @@ public class README {
            atehere ja qon kete jwt token atij, qe mos me pas nevoj mi shti te dhenat pasi u bo login, por e perdor
            kete token per cdo request tjeter. Kete filter e ben mu egzekutu vetem per urln /login, sepse aty na duhet
            me ja qu JWT Tokenit userit qe eshte duke u bere login.
-        6. Kete filter e bejme mu egzekutu pas autentikimit, pra pas BasicAuthenticationFilter-it (Shiko SecurityConfig)
+        6.1. Kete filter e bejme mu egzekutu pas autentikimit, pra pas BasicAuthenticationFilter-it (Shiko SecurityConfig)
         7. Tash per me validu tokenin, pra per me mujt me kqyr se useri a ka token a jo, e kemi bere filterin
            JWTValidatorFilter ku ne te cilin fillimisht e kemi marr header parametrin e requestit te quajtur: Authorization
            sepse ne te ruhet JWT Tokeni, dhe nese ku parameter egziston, atehere ja kemi marr Claims (te dhenat e ruajtura

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 public class RolesController {
 
     private APIService apiService;
@@ -24,7 +23,7 @@ public class RolesController {
         this.apiService = apiService;
     }
 
-    @PostMapping(value = "/role")
+    @PostMapping(value = "/admin/role")
     public ResponseEntity<Roles> insertRole(@RequestBody Roles role){
         Roles roleInserted = apiService.insertRole(role);
         if (roleInserted != null)
@@ -33,7 +32,7 @@ public class RolesController {
             throw new NotFoundException("Couldn't insert the Role");
     }
 
-    @PostMapping(value = "/roles")
+    @PostMapping(value = "/admin/roles")
     public ResponseEntity<List<Roles>> insertRole(@RequestBody List<Roles> roles){
         List<Roles> rolesThatExist = apiService.findAllRoles();
         roles.forEach(role -> rolesThatExist.forEach(r -> {
@@ -50,7 +49,7 @@ public class RolesController {
             throw new NotFoundException("Couldn't insert Roles");
     }
 
-    @GetMapping(value = "/role/id")
+    @GetMapping(value = "/admin/role/id")
     public ResponseEntity<Roles> findRoleById(@RequestParam String roleId){
         Roles roleFound = apiService.findRoleById(roleId);
         if (roleFound != null)
@@ -59,7 +58,7 @@ public class RolesController {
             throw new NotFoundException("Couldn't find Role by id = " + roleId);
     }
 
-    @GetMapping(value = "/role")
+    @GetMapping(value = "/admin/role")
     public ResponseEntity<Roles> findRoleByName(@RequestParam String roleName){
         Roles roleFound = apiService.findRoleByName(roleName);
         if (roleFound != null)
@@ -68,7 +67,7 @@ public class RolesController {
             throw new NotFoundException("Couldn't find Role by roleName = " + roleName);
     }
 
-    @GetMapping(value = "/roles")
+    @GetMapping(value = "/admin/roles")
     public ResponseEntity<List<Roles>> findAllRoles(@RequestParam(required = false) Integer size,
                                                       @RequestParam(required = false) Integer pageNumber){
 
@@ -87,7 +86,7 @@ public class RolesController {
             throw new NotFoundException("Couldn't find any Role");
     }
 
-    @DeleteMapping(value = "/role/id/{roleId}")
+    @DeleteMapping(value = "/admin/role/id/{roleId}")
     public ResponseEntity<String> deleteRoleById(@PathVariable String roleId) {
         try{
             if (apiService.findRoleById(roleId) == null) {
@@ -100,7 +99,7 @@ public class RolesController {
         }
     }
 
-    @DeleteMapping(value = "/role/name/{roleName}")
+    @DeleteMapping(value = "/admin/role/name/{roleName}")
     public ResponseEntity<String> deleteRoleByName(@PathVariable String roleName) {
         try{
             if (apiService.findRoleByName(roleName) == null) {

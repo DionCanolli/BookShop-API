@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 public class BookAuthorsController {
 
     private final APIService apiService;
@@ -25,7 +24,7 @@ public class BookAuthorsController {
         this.apiService = apiService;
     }
 
-    @PostMapping(value = "/bookAuthor")
+    @PostMapping(value = "/admin/bookAuthor")
     public ResponseEntity<BookAuthors> insertBookAuthor(@RequestBody BookAuthors bookAuthor){
         BookAuthors bookAuthorInserted = apiService.insertBookAuthor(bookAuthor);
         if (bookAuthorInserted != null)
@@ -35,16 +34,17 @@ public class BookAuthorsController {
     }
 
     // Me kqyr a egziston najnje, por edhe mos ka naj null ne authorId apo bookId
-    @PostMapping(value = "/bookAuthors")
+    @PostMapping(value = "/admin/bookAuthors")
     public ResponseEntity<List<BookAuthors>> insertBookAuthors(@RequestBody List<BookAuthors> bookAuthors){
 
         List<BookAuthors> bookAuthorsThatExist = apiService.findAllBookAuthors();
 
-        bookAuthors.forEach(bkAth -> bookAuthorsThatExist.forEach(ba -> {
-            if (bkAth.getAuthorId() == null || bkAth.getBookId() == null
-            || (ba.getAuthorId().equals(bkAth.getAuthorId()) && ba.getBookId().equals(bkAth.getBookId()))
-            || apiService.findBookById(bkAth.getBookId()) == null || apiService.findAuthorById(bkAth.getAuthorId()) == null)
-                throw new BadRequestException("Couldn't insert BookAuthor");
+        bookAuthors.forEach(bkAth ->
+                bookAuthorsThatExist.forEach(ba -> {
+                    if (bkAth.getAuthorId() == null || bkAth.getBookId() == null
+                    || (ba.getAuthorId().equals(bkAth.getAuthorId()) && ba.getBookId().equals(bkAth.getBookId()))
+                    || apiService.findBookById(bkAth.getBookId()) == null || apiService.findAuthorById(bkAth.getAuthorId()) == null)
+                        throw new BadRequestException("Couldn't insert BookAuthor");
         }));
 
         List<BookAuthors> bookAuthorInserted = apiService.insertBookAuthors(bookAuthors);
@@ -131,18 +131,7 @@ public class BookAuthorsController {
             throw new NotFoundException("Couldn't find BookAuthor by given author id and book id");
     }
 
-    @GetMapping(value = "/bookAuthor/id/{bookAuthorId}")
-    public ResponseEntity<BookAuthors> findBookAuthorsByBookAuthorId(@PathVariable String bookAuthorId){
-
-        BookAuthors bookAuthor = apiService.findBookAuthorByBookAuthorId(bookAuthorId);
-
-        if (bookAuthor != null)
-            return new ResponseEntity<>(bookAuthor, HttpStatus.OK);
-        else
-            throw new NotFoundException("Couldn't find BookAuthor by given id");
-    }
-
-    @PutMapping(value = "/bookAuthor/id/{bookAuthorId}")
+    @PutMapping(value = "/admin/bookAuthor/id/{bookAuthorId}")
     public ResponseEntity<BookAuthors> updateBookById(@PathVariable String bookAuthorId, @RequestBody BookAuthors bookAuthor) {
         BookAuthors existingBookAuthor = apiService.findBookAuthorByBookAuthorId(bookAuthorId);
 
@@ -158,7 +147,7 @@ public class BookAuthorsController {
             throw new BadRequestException("Couldn't update BookAuthor");
     }
 
-    @DeleteMapping(value = "/bookAuthor/id/{bookAuthorId}")
+    @DeleteMapping(value = "/admin/bookAuthor/id/{bookAuthorId}")
     public ResponseEntity<String> deleteBookByTitle(@PathVariable String bookAuthorId) {
         try{
             if (apiService.findBookAuthorByBookAuthorId(bookAuthorId) == null) {

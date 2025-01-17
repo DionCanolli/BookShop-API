@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1")
 public class GenresController {
 
     private final APIService apiService;
@@ -24,7 +23,7 @@ public class GenresController {
         this.apiService = apiService;
     }
 
-    @PostMapping(value = "/genre")
+    @PostMapping(value = "/admin/genre")
     public ResponseEntity<Genres> insertGenre(@RequestBody Genres genres){
         Genres genreInserted = apiService.insertGenre(genres);
         if(genreInserted != null)
@@ -33,7 +32,7 @@ public class GenresController {
             throw new BadRequestException("Couldn't insert Genre");
     }
 
-    @PostMapping(value = "/genres")
+    @PostMapping(value = "/admin/genres")
     public ResponseEntity<List<Genres>> insertGenres(@RequestBody List<Genres> genres){
         List<Genres> genresInserted = apiService.insertGenres(genres);
         if(!genresInserted.isEmpty())
@@ -64,7 +63,7 @@ public class GenresController {
             throw new BadRequestException("Couldn't find Genre with name = " + genreName);
     }
 
-    @PutMapping(value = "/genre/name/{name}")
+    @PutMapping(value = "/admin/genre/name/{name}")
     public ResponseEntity<Genres> updateGenreByName(@PathVariable String name, @RequestBody Genres genre) {
         Genres existingGenre = apiService.findGenreByName(name);
 
@@ -80,7 +79,7 @@ public class GenresController {
 
     // Ktu duhet fillimisht mja lan cdo libri qe e ka kete genre (genreId-n = id e kesaj genre qe po dojna me fshi) ne null,
     // e pastaj me fshi.
-    @DeleteMapping(value = "/genre/name/{name}")
+    @DeleteMapping(value = "/admin/genre/name/{name}")
     public ResponseEntity<String> deleteBookByTitle(@PathVariable String name) {
         try{
             Genres genre = apiService.findGenreByName(name);

@@ -1,0 +1,114 @@
+1. Collectins qe kan mu perdor  +
+2. Data Model / Service Spring Boot  +
+3. Endpointat
+4. AOP
+5. Security
+6. Testing
+
+-----
+
+
+Endpointat:
+
+Books: 
+	1.  insertBook  +
+	2.  insertBooks	 +
+	3.  findBookById  + 
+	4.  findBookByTitle  +
+	5.  findBooksByPrice (+ pagination)  +
+	6.  findBooksGreaterThanPrice (+ pagination)  +
+	7.  findBooksLessThanByPrice (+ pagination)  +
+	8.  findBooksByGenreId (+ pagination)  +
+	9.  findBooksByGenreName (+ pagination)  + 
+	10. findBooksByLanguage (+ pagination)  +
+	11. findAllBooks (+ pagination)  +
+	12. updateBookById  +
+	13. updateBookByTitle  +
+	14. deleteBookByTitle  +
+
+Genres:
+	1.  insertGenre  +
+	2.  insertGenres  +
+	3.  findGenreById  +
+	4.  findGenreByName  +
+	5.  updateGenreByName +
+	6.  deleteGenreByName +
+	7.  findAllGenres (+ pagination)
+
+Authors:
+	1.  insertAuthor  +
+	2.  insertAuthors +
+	3.  findAuthorById +
+	4.  findAuthorByFirstNameAndLastName +
+	5.  findAuthorByEmail +
+	6.  findAuthorsByNationality +
+	7.  updateAuthorByEmail +
+	8.  deleteAuthorByEmail +
+	9.  findAllAuthors (+ pagination) +
+
+Users: 
+	1.  signup  +
+	2.  login  +
+	3.  logout  +
+	4.  findUserByEmail  +
+	5.  updateUser
+	6.  deleteUserByEmail  
+	7.  findAllUsers (+ pagination)  +
+
+Roles:
+	1. insertRole  +
+	2. insertRoles  +
+	3. findAllRoles (+ pagination)  +
+	4. findRoleByRoleId  +
+	5. findRoleByRoleName  +
+	6. deleteRoleById  +
+	7. deleteRoleByName  +
+
+Transactions:
+	1.  insertTransaction  +
+	2.  findTransactionsByUserId  +
+	3.  findTransactionsByBookId  +
+	4.  findTransactionsByUserIdAndBookId  +
+	5.  findTransactionsByDate  +
+	6.  findTransactionsByMonth  +
+	7.  findTransactionsByYear  +
+	8.  findTransactionsByTotalPrice =
+	9.  findMyTransactions  =
+	10. deleteTransactionByUserIdAndBookId  =
+
+BookAuthors:
+	1.  insertBookAuthor  +
+	2.  insertBookAuthors  +
+	3.  findBookAuthorsByAuthorId  +
+	4.  findBookAuthorsByAuthorEmail  +
+	5.  findBookAuthorsByBookId  +
+	6.  findBookAuthorsByBookTitle  +  
+	7.  findBookAuthorsByAuthorIdAndBookId  +
+	8.  updateBookAuthor  +
+	9.  deleteBookAuthor  +
+	10. findBookAuthorById +
+
+Reviews:
+	1.  insertReview  +
+	2.  findReviewsByUserId  +
+	3.  findReviewsByBookId  +
+	4.  findReviewsByRating  =
+	5.  deleteReviewByUserIdAndBookId  =
+	6.  findMyReviews  +
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
